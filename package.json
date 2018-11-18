@@ -1,6 +1,6 @@
 {
   "name": "fcash",
-  "version": "8.0.4",
+  "version": "8.0.5",
   "description": "A platform to build bitcoin and blockchain-based applications.",
   "engines": {
     "node": ">=8.0.0"
@@ -36,10 +36,10 @@
     "url": "https://github.com/fcash-wallet/fcash.git"
   },
   "dependencies": {
-    "fcash-lib": "8.0.4",
-    "fcash-node": "8.0.4",
-    "fcash-insight-api": "8.0.4",
-    "fcash-insight": "8.0.4"
+    "fcash-lib": "8.0.5",
+    "fcash-node": "8.0.5",
+    "fcash-insight-api": "8.0.5",
+    "fcash-insight": "8.0.5"
   },
   "license": "MIT",
   "devDependencies": {
