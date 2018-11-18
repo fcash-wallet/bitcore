@@ -1,27 +1,27 @@
 'use strict';
 
 var should = require('chai').should();
-var bitcore = require('../');
+var fcash = require('../');
 
 describe('Library', function() {
   it('should export primatives', function() {
-    should.exist(bitcore.crypto);
-    should.exist(bitcore.encoding);
-    should.exist(bitcore.util);
-    should.exist(bitcore.errors);
-    should.exist(bitcore.Address);
-    should.exist(bitcore.Block);
-    should.exist(bitcore.MerkleBlock);
-    should.exist(bitcore.BlockHeader);
-    should.exist(bitcore.HDPrivateKey);
-    should.exist(bitcore.HDPublicKey);
-    should.exist(bitcore.Networks);
-    should.exist(bitcore.Opcode);
-    should.exist(bitcore.PrivateKey);
-    should.exist(bitcore.PublicKey);
-    should.exist(bitcore.Script);
-    should.exist(bitcore.Transaction);
-    should.exist(bitcore.URI);
-    should.exist(bitcore.Unit);
+    should.exist(fcash.crypto);
+    should.exist(fcash.encoding);
+    should.exist(fcash.util);
+    should.exist(fcash.errors);
+    should.exist(fcash.Address);
+    should.exist(fcash.Block);
+    should.exist(fcash.MerkleBlock);
+    should.exist(fcash.BlockHeader);
+    should.exist(fcash.HDPrivateKey);
+    should.exist(fcash.HDPublicKey);
+    should.exist(fcash.Networks);
+    should.exist(fcash.Opcode);
+    should.exist(fcash.PrivateKey);
+    should.exist(fcash.PublicKey);
+    should.exist(fcash.Script);
+    should.exist(fcash.Transaction);
+    should.exist(fcash.URI);
+    should.exist(fcash.Unit);
   });
 });

@@ -3,10 +3,10 @@ set -e
 
 ######### Adjust these variables as needed ################
 
-insightApiDir="${HOME}/source/insight-api"
-insightUIDir="${HOME}/source/insight-ui"
-bitcoreDir="${HOME}/source/bitcore"
-bitcoreNodeDir="${HOME}/source/bitcore-node"
+insightApiDir="${HOME}/source/fcash-insight-api"
+insightUIDir="${HOME}/source/fcash-fcash-insight"
+fcashDir="${HOME}/source/fcash"
+fcashNodeDir="${HOME}/source/fcash-node"
 
 ###########################################################
 
@@ -17,9 +17,9 @@ bump_version () {
 }
 
 set_deps () {
-  sed -i '' -e "s/\"bitcore-node\"\: .*$/\"bitcore-node\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-api\"\: .*$/\"insight-api\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-ui\"\: .*$/\"insight-ui\"\: \"bitpay\/insight\#${tag}\"/g" package.json
+  sed -i '' -e "s/\"fcash-node\"\: .*$/\"fcash-node\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"fcash-insight-api\"\: .*$/\"insight-api\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"fcash-insight\"\: .*$/\"fcash-insight\"\: \"bitpay\/fcash-insight\#${tag}\"/g" package.json
 }
 
 tag="${1}"
@@ -33,13 +33,13 @@ fi
 
 
 #############################################
-# bitcore-node
+# fcash-node
 #############################################
-function bitcoreNode() {
+function fcashNode() {
   echo ""
-  echo "Starting with bitcore-node..."
+  echo "Starting with fcash-node..."
   sleep 2
-  pushd "${bitcoreNodeDir}"
+  pushd "${fcashNodeDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -58,7 +58,7 @@ function bitcoreNode() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore-node..."
+  echo "Committing changes for fcash-node..."
   sleep 2
   git commit -S
 
@@ -83,11 +83,11 @@ function bitcoreNode() {
 }
 
 #############################################
-# insight-api
+# fcash-insight-api
 #############################################
 function insightApi() {
   echo ""
-  echo "Releasing insight-api..."
+  echo "Releasing fcash-insight-api..."
   sleep 2
   pushd "${insightApiDir}"
 
@@ -108,7 +108,7 @@ function insightApi() {
   fi
 
   echo ""
-  echo "Committing changes for insight-api..."
+  echo "Committing changes for fcash-insight-api..."
   sleep 2
   git commit -S
 
@@ -133,11 +133,11 @@ function insightApi() {
 }
 
 #############################################
-# insight-ui
+# fcash-insight
 #############################################
 function insightUi() {
   echo ""
-  echo "Releasing insight-ui..."
+  echo "Releasing fcash-insight..."
   sleep 2
   pushd "${insightUIDir}"
 
@@ -158,7 +158,7 @@ function insightUi() {
   fi
 
   echo ""
-  echo "Committing changes for insight-ui..."
+  echo "Committing changes for fcash-insight..."
   sleep 2
   git commit -S
 
@@ -183,13 +183,13 @@ function insightUi() {
 }
 
 #############################################
-# bitcore
+# fcash
 #############################################
-function bitcore() {
+function fcash() {
   echo ""
-  echo "Releasing bitcore..."
+  echo "Releasing fcash..."
   sleep 2
-  pushd "${bitcoreDir}"
+  pushd "${fcashDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -210,7 +210,7 @@ function bitcore() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore..."
+  echo "Committing changes for fcash..."
   sleep 2
   git commit -S
 
@@ -243,10 +243,10 @@ echo "Assuming projects at ${HOME}/source..."
 
 releases="${2}"
 if [ -z "${releases}" ]; then
-  bitcoreNode
+  fcashNode
   insightApi
   insightUi
-  bitcore
+  fcash
 else
   eval "${releases}"
 fi

@@ -1,0 +1,20 @@
+[Unit]
+Description=Bitcoin Core for Fcash
+Requires=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/opt/fcash
+ExecStart=/usr/bin/fcash-bitcoind -datadir=/home/fcash/.fcash/data/
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=15
+User=fcash
+ExecStartPre=/bin/mkdir -p /run/fcash
+ExecStartPre=/bin/chown fcash:fcash /run/fcash
+ExecStartPre=/bin/chmod 755 /run/fcash
+PermissionsStartOnly=true
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target

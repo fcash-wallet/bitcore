@@ -4,15 +4,15 @@ Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/opt/bitcore
-ExecStart=/usr/opt/bitcore/bin/bitcored
+WorkingDirectory=/usr/opt/fcash
+ExecStart=/usr/opt/fcash/bin/fcashd
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=15
-User=bitcore
-ExecStartPre=/bin/mkdir -p /run/bitcore
-ExecStartPre=/bin/chown bitcore:bitcore /run/bitcore
-ExecStartPre=/bin/chmod 755 /run/bitcore
+User=fcash
+ExecStartPre=/bin/mkdir -p /run/fcash
+ExecStartPre=/bin/chown fcash:fcash /run/fcash
+ExecStartPre=/bin/chmod 755 /run/fcash
 PermissionsStartOnly=true
 TimeoutStopSec=300
 

@@ -1,6 +1,6 @@
 {
-  "name": "bitcore",
-  "version": "5.0.0-beta.44",
+  "name": "fcash",
+  "version": "8.0.4",
   "description": "A platform to build bitcoin and blockchain-based applications.",
   "engines": {
     "node": ">=8.0.0"
@@ -12,8 +12,8 @@
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "bitcore": "./bin/bitcore",
-    "bitcored": "./bin/bitcored"
+    "fcash": "./bin/fcash",
+    "fcashd": "./bin/fcashd"
   },
   "keywords": [
     "bitcoin",
@@ -33,13 +33,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/fcash-wallet/fcash.git"
   },
   "dependencies": {
-    "bitcore-lib": "5.0.0-beta.1",
-    "bitcore-node": "5.0.0-beta.44",
-    "insight-api": "5.0.0-beta.44",
-    "insight-ui": "bitpay/insight#v5.0.0-beta.44"
+    "fcash-lib": "8.0.4",
+    "fcash-node": "8.0.4",
+    "fcash-insight-api": "8.0.4",
+    "fcash-insight": "8.0.4"
   },
   "license": "MIT",
   "devDependencies": {

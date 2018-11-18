@@ -8,7 +8,7 @@ process=false
 
 ########################################
 
-# deploys latest bitcore to application servers over ssh
+# deploys latest fcash to application servers over ssh
 
 if [ -z "${1}" ]; then
   echo 'no server file given, exiting.'
@@ -37,15 +37,15 @@ function execCmd() {
 function deploy () {
 
   # stop the server
-  cmd="sudo service bitcored stop"
+  cmd="sudo service fcashd stop"
   execCmd
 
-  # run npm install -g bitcore@beta
-  cmd="sudo su - bitcore -c 'npm install -g bitcore@beta'"
+  # run npm install -g fcash@beta
+  cmd="sudo su - fcash -c 'npm install -g fcash@beta'"
   execCmd
 
   # start server
-  cmd="sudo service bitcored start"
+  cmd="sudo service fcashd start"
   execCmd
 
 }
@@ -87,7 +87,7 @@ while IFS='' read -r server || [[ -n "$server" ]]; do
   if [ -z "${logType}" ]; then
     logCmd="sudo journalctl -f"
   else
-    logCmd="sudo tail -f /var/log/upstart/bitcored_testnet_new.log"
+    logCmd="sudo tail -f /var/log/upstart/fcashd_testnet_new.log"
   fi
 
   sshCmd="${ssh}${port} ${host} "
